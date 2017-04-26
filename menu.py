@@ -4,28 +4,29 @@ class App:
   def __init__(self, master):
     frame = Frame(master)
     frame.pack()
+    frame.grid(row=0, column=0, sticky=N+S+E+W)
     self.button1 = Button(frame, 
                          text="Hello",
                          command=self.run_ssft2)
     self.photo1=PhotoImage(file="ssft2.gif")
     self.button1.config(image=self.photo1)
-    self.button1.grid(row=0, column=0)
-    self.button2 = Button(frame,
+    self.button1.grid(row=0, column=0, sticky=N+S+E+W)
+    self.button2=Button(frame,
                          text="Hello",
                          command=self.run_simpsons)
     self.photo2=PhotoImage(file="simpsons.gif")
     self.button2.config(image=self.photo2)
-    self.button2.grid(row=0, column=1)
-    self.button3 = Button(frame, 
+    self.button2.grid(row=0, column=1, sticky=N+S+E+W)
+    self.button3=Button(frame, 
                          text="Hello",
                          command=self.run_tmnt)
-    self.button3.grid(row=1, column=0)
+    self.button3.grid(row=1, column=0, sticky=N+S+E+W)
     self.photo3=PhotoImage(file="tmnt.gif")
     self.button3.config(image=self.photo3)
-    self.button4 = Button(frame, 
+    self.button4=Button(frame, 
                          text="QUIT", fg="red",
                          command=frame.quit)
-    self.button4.grid(row=1, column=1)
+    self.button4.grid(row=1, column=1, sticky=N+S+E+W)
 
   def run_ssft2(self):
     print "Starting Super Street Fighter 2!"
@@ -40,6 +41,7 @@ root = Tk()
 root.overrideredirect(True)
 root.overrideredirect(False)
 root.attributes('-fullscreen',True)
+root.attributes("-topmost", True)
 
 app = App(root)
 root.mainloop()
